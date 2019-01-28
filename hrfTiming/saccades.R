@@ -3,6 +3,14 @@
 #Set the working environment.
 setwd("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/oculomotor")
 
+#create the directory to hold hrf files.
+if (file.exists("saccades")){
+  setwd("saccades")
+} else {
+  dir.create("saccades")
+  setwd("saccades")
+}
+
 ################
 #SACCADE EVENTS#
 ################
@@ -31,7 +39,6 @@ group$FIX_DURATION = group$FIX_DURATION/1000
 
 #Add saccade amplitude as amplitude modulator
 group$Parametric = paste((group$START_TIME_FIX), group$CURRENT_SAC_AMPLITUDE, sep = "*")
-group$Parametric = paste(group$Parametric, group$FIX_DURATION, sep = ":")
 
 #Remove unneeded columns
 mdata = group
@@ -52,7 +59,7 @@ for (i in unique(mdata$RECORDING_SESSION_LABEL)) {
     sub1data[sub1data$RUN == 2, ]$variable = sub1data[sub1data$RUN == 2, ]$variable - max(sub1data[sub1data$RUN == 1, ]$variable)
     sub1data = dcast(sub1data, RUN ~ variable)
     sub1data = sub1data[2:ncol(sub1data)]
-    write.table(sub1data, paste("saccades/",i,".txt", sep = ""), sep = "\t", na = "", col.names = FALSE, row.names = FALSE, quote = FALSE)
+    write.table(sub1data, paste(i,".txt", sep = ""), sep = "\t", na = "", col.names = FALSE, row.names = FALSE, quote = FALSE)
     }
 }
 

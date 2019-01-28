@@ -1,18 +1,18 @@
-#This script builds the lexical HRF, which is to be used as a baseline regressor of no interest since we're only interested in oculomotor control during reading rather than linguistic contributions.
+#This script builds the lexical HRF, which is to be used as a baseline regressor of no interest since we're only interested in oculomotor control centers during reading rather than linguistic contributions. Uses fixation start time and lexical predictability.
 
 #Set the working environment.
 setwd("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/oculomotor")
 
-#create the directory to hold timing files.
-if (file.exists("ortho")){
-  setwd("ortho")
+#create the directory to hold hrf files.
+if (file.exists("linguistic")){
+  setwd("linguistic")
 } else {
-  dir.create("ortho")
-  setwd("ortho")
+  dir.create("linguistic")
+  setwd("linguistic")
 }
 
 #Read in source csv as matrix
-group <- read.csv("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/source_csvs/fixvsac.csv")
+group <- read.csv("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/source_csvs/predictions.csv")
 colnames(group)
 
 #remove unneeded columns/values
@@ -23,8 +23,7 @@ group <- group[,c("RECORDING_SESSION_LABEL","RUN","START_TIME","OrthoMatchModel"
 group = group[is.na(group$START_TIME) == FALSE, ]
 group = group[is.na(group$OrthoMatchModel) == FALSE, ]
 
-#Create a column with times in parametric format ([event1 time]*[orthographic]*[POS]*[LSA] ...  [eventn time]*[orthographic]*[POS]*[LSA]) and perform maths to convert times from milliseconds to seconds.
-#group$Parametric_times = paste((group$START_TIME/1000), log10(group$OrthoMatchModel), sep = "*")
+#Create a column with times in parametric format and perform maths to convert times from milliseconds to seconds.
 group$Parametric_times = log(group$OrthoMatchModel)
 group$Parametric_times = paste((group$START_TIME/1000), (group$Parametric_times + abs(min(group$Parametric_times))+1), sep ="*")
 group$Parametric_times = paste(group$Parametric_times,(group$IA_FIRST_RUN_DWELL_TIME/1000), sep = ":")
@@ -46,10 +45,8 @@ for (i in unique(mdata$RECORDING_SESSION_LABEL)) {
     sub1data[sub1data$RUN == 3, ]$variable = sub1data[sub1data$RUN == 3, ]$variable - max(sub1data[sub1data$RUN == 2, ]$variable)
     sub1data[sub1data$RUN == 2, ]$variable = sub1data[sub1data$RUN == 2, ]$variable - max(sub1data[sub1data$RUN == 1, ]$variable)
     sub1data = dcast(sub1data, RUN ~ variable)
-    #max(sub1data[sub1data$RUN == 3, ]$variable)
     sub1data = sub1data[2:ncol(sub1data)]
-    write.table(sub1data, paste(i, ".txt", sep = ""), sep = "\t", na = "", col.names = FALSE, row.names = FALSE, quote = FALSE)
-    #write.table(sub1data, paste("Luke_Reading_S", i, ".txt", sep = ""), sep = "\t", col.names = FALSE, row.names = FALSE) 
+    write.table(sub1data, paste(i, ".txt", sep = ""), sep = "\t", na = "", col.names = FALSE, row.names = FALSE, quote = FALSE) 
   }
 }
 
