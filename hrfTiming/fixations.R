@@ -25,6 +25,7 @@ group = group[is.na(group$FIX_DURATION) == FALSE, ]
 
 #Convert times to milliseconds
 group$START_TIME_FIX = group$START_TIME_FIX/1000
+group$FIX_DURATION = group$FIX_DURATION/1000
 
 #Add saccade amplitude as amplitude modulator
 group$Parametric = paste((group$START_TIME_FIX), group$FIX_DURATION, sep = ":")
