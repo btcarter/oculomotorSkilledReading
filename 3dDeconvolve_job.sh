@@ -28,6 +28,7 @@ TIMING=${HOME_DIR}/TimingFiles/oculomotor
 TIMING_FIX=${TIMING}/fixations/${1}.txt
 TIMING_SAC=${TIMING}/saccades/${1}.txt
 TIMING_CROSS=${TIMING}/fixationCross/fixationCross.txt
+TIMING_LING=${TIMING}/linguistic/${1}.txt
 LOG=/fslhome/ben88/logfiles
 
 ##########
@@ -66,9 +67,10 @@ if [ -f ${TIMING_FIX} ] && [ ! -f oculomotor_deconv+orig.BRIK ]
             -stim_file 4 "$subj_DIR/motion/motion.txt[3]" -stim_label 4 "dS"    -stim_base   4 \
             -stim_file 5 "$subj_DIR/motion/motion.txt[4]" -stim_label 5 "dL"    -stim_base   5 \
             -stim_file 6 "$subj_DIR/motion/motion.txt[5]" -stim_label 6 "dP"    -stim_base   6 \
-            -stim_times 7 ${TIMING_CROSS} 'BLOCK(6,1)' -stim_label 7 "cross" \
-            -stim_times_AM2 8 ${TIMING_FIX} 'dmBLOCK' -stim_label 8 "fix" \
-            -stim_times_AM2 9 ${TIMING_SAC} 'dmBLOCK' -stim_label 9 "sac" \
+            -stim_times_AM1 7 $(TIMING_LING) 'dmBLOCK' -stim_label 7 "ling" \
+            -stim_times 8 ${TIMING_CROSS} 'BLOCK(6,1)' -stim_label 8 "cross" \
+            -stim_times_AM2 9 ${TIMING_FIX} 'dmBLOCK' -stim_label 9 "fix" \
+            -stim_times_AM2 10 ${TIMING_SAC} 'dmBLOCK' -stim_label 10 "sac" \
             -num_glt 3 \
             -gltsym 'SYM: fix' \
             -glt_label 1 fix \
