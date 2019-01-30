@@ -60,7 +60,7 @@ if [ -f ${TIMING_FIX} ] && [ ! -f oculomotor_deconv+orig.BRIK ]
             -input $subj_DIR/afni_data/epi1_volreg+orig $subj_DIR/afni_data/epi2_volreg+orig $subj_DIR/afni_data/epi3_volreg+orig \
             -mask $subj_DIR/afni_data/struct_mask+orig \
             -polort A \
-            -num_stimts 9 \
+            -num_stimts 10 \
             -stim_file 1 "$subj_DIR/motion/motion.txt[0]" -stim_label 1 "Roll"  -stim_base   1 \
             -stim_file 2 "$subj_DIR/motion/motion.txt[1]" -stim_label 2 "Pitch" -stim_base   2 \
             -stim_file 3 "$subj_DIR/motion/motion.txt[2]" -stim_label 3 "Yaw"   -stim_base   3 \
@@ -69,15 +69,15 @@ if [ -f ${TIMING_FIX} ] && [ ! -f oculomotor_deconv+orig.BRIK ]
             -stim_file 6 "$subj_DIR/motion/motion.txt[5]" -stim_label 6 "dP"    -stim_base   6 \
             -stim_times_AM1 7 $(TIMING_LING) 'dmBLOCK' -stim_label 7 "ling" -stim_base 7 \
             -stim_times 8 ${TIMING_CROSS} 'BLOCK(6,1)' -stim_label 8 "cross" \
-            -stim_times_AM2 9 ${TIMING_FIX} 'dmBLOCK' -stim_label 9 "fix" \
-            -stim_times_AM2 10 ${TIMING_SAC} 'dmBLOCK' -stim_label 10 "sac" \
+            -stim_times_AM1 9 ${TIMING_FIX} 'dmBLOCK' -stim_label 9 "fix" \
+            -stim_times_AM1 10 ${TIMING_SAC} 'dmBLOCK' -stim_label 10 "sac" \
             -num_glt 3 \
-            -gltsym 'SYM: fix' \
-            -glt_label 1 fix \
+            -gltsym 'SYM: fix -cross' \
+            -glt_label 1 fix-cross \
             -gltsym 'SYM: sac' \
             -glt_label 2 sac \
             -gltsym 'SYM: sac -fix' \
-            -glt_label 3 SacvFix \
+            -glt_label 3 sac-fix \
             -censor "$subj_DIR/motion/motion_censor_vector.txt[0]" \
             -nocout \
             -tout \

@@ -26,7 +26,6 @@ group = group[is.na(group$OrthoMatchModel) == FALSE, ]
 #Create a column with times in parametric format and perform maths to convert times from milliseconds to seconds.
 group$Parametric_times = log(group$OrthoMatchModel)
 group$Parametric_times = paste((group$START_TIME/1000), (group$Parametric_times + abs(min(group$Parametric_times))+1), sep ="*")
-group$Parametric_times = paste(group$Parametric_times,(group$IA_FIRST_RUN_DWELL_TIME/1000), sep = ":")
 
 mdata = group
 colnames(mdata)
