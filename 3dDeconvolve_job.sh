@@ -20,11 +20,11 @@ export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
 ###############
 
 AFNI_BIN=/fslhome/ben88/abin
-HOME_DIR=/fslhome/ben88/compute/Reading/Compute_data
-SCRIPT_DIR=${HOME_DIR}/Scripts
+HOME_DIR=/fslhome/ben88/compute/Reading
+SCRIPT_DIR=${HOME_DIR}/analyses/oculomotor
 antifyFunk=${SCRIPT_DIR}/ANTifyFunctional
-subj_DIR=${HOME_DIR}/SubjData/${1}
-TIMING=${HOME_DIR}/TimingFiles/oculomotor
+subj_DIR=${HOME_DIR}/mriData/${1}
+TIMING=${HOME_DIR}/timingFiles/oculomotor
 TIMING_FIX=${TIMING}/fixations/${1}.txt
 TIMING_SAC=${TIMING}/saccades/${1}.txt
 TIMING_CROSS=${TIMING}/fixationCross/fixationCross.txt
