@@ -11,8 +11,8 @@
 #############
 
 HOME_DIR=/fslhome/ben88/compute/Reading
-SCRIPT_DIR=${HOME_DIR}/analyses/oculomotor
-subj_DIR=${HOME_DIR}/mriData/${1}
+SCRIPT_DIR=${HOME_DIR}/analyses
+SUBJ_DIR=${HOME_DIR}/mriData/
 
 ##########
 #COMMANDS#
