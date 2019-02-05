@@ -23,10 +23,10 @@ export ANTSPATH=/fslhome/ben88/apps/ants/bin
 PATH=${ANTSPATH}:${PATH}
 
 AFNI_BIN=/fslhome/ben88/abin
-HOME_DIR=/fslhome/ben88/compute/Reading/Compute_data
-    SCRIPT_DIR=${HOME_DIR}/Scripts
-        antifyFunk=$SCRIPT_DIR/ANTifyFunctional
-    subj_DIR=${HOME_DIR}/SubjData/${1}
+HOME_DIR=/fslhome/ben88/compute/Reading
+SCRIPT_DIR=${HOME_DIR}/analyses/oculomotor
+antifyFunk=${SCRIPT_DIR}/ANTifyFunctional
+subj_DIR=${HOME_DIR}/mriData/${1}
 LOG=/fslhome/ben88/logfiles
 TEMPLATE=/fslhome/ben88/templates/Cthulhu
 
