@@ -10,9 +10,9 @@
 #ENVIRONMENT#
 #############
 
-HOME_DIR=/fslhome/ben88/compute/Reading/Compute_data
-SCRIPT_DIR=${HOME_DIR}/Scripts
-SUBJ_DIR=${HOME_DIR}/SubjData
+HOME_DIR=/fslhome/ben88/compute/Reading
+SCRIPT_DIR=${HOME_DIR}/analyses
+SUBJ_DIR=${HOME_DIR}/mriData/
 
 ##########
 #COMMANDS#
