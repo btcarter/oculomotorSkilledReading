@@ -1,7 +1,7 @@
 # This script builds the HRF for saccades during reading.
 
 #Set the working environment.
-setwd("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/oculomotor")
+setwd("~/Box/LukeLab/SkilledReadingStudy/data/timingFiles/oculomotor")
 
 #create the directory to hold hrf files.
 if (file.exists("saccades")){
@@ -16,7 +16,7 @@ if (file.exists("saccades")){
 ################
 
 #Read in fixvsac.csv as table.
-group <- read.csv("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/source_csvs/fixvsac.csv")
+group <- read.csv("~/Box/LukeLab/SkilledReadingStudy/data/timingFiles/source_csvs/fixvsac.csv")
 colnames(group)
 
 #CLEAN UP THE INPUT
