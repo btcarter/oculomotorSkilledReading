@@ -1,4 +1,4 @@
-#This script builds the HRF for fixations.
+# This script builds the HRF for fixations.
 
 #Set the working environment.
 setwd("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/oculomotor")
@@ -27,7 +27,7 @@ group = group[is.na(group$FIX_DURATION) == FALSE, ]
 group$START_TIME_FIX = group$START_TIME_FIX/1000
 group$FIX_DURATION = group$FIX_DURATION/1000
 
-#Add saccade amplitude as amplitude modulator
+#Add fixation duration as duration modulator
 group$Parametric = paste((group$START_TIME_FIX), group$FIX_DURATION, sep = ":")
 
 #Remove unneeded columns

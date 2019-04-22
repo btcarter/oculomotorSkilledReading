@@ -1,7 +1,8 @@
-#This script builds the lexical HRF, which is to be used as a baseline regressor of no interest since we're only interested in oculomotor control centers during reading rather than linguistic contributions. Uses fixation start time and lexical predictability.
+# This script builds the lexical HRF, which is to be used as a baseline regressor of no interest since we're only interested in oculomotor control centers
+# during reading rather than linguistic contributions. Uses fixation start time and lexical predictability.
 
 #Set the working environment.
-setwd("~/Box/LukeLab/SkilledReadingStudy/workingDirectory/timingFiles/oculomotor")
+setwd("~/Box/LukeLab/SkilledReadingStudy/data/timingFiles/oculomotor")
 
 #create the directory to hold hrf files.
 if (file.exists("linguistic")){
