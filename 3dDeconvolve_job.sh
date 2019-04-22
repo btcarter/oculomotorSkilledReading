@@ -73,8 +73,8 @@ if [ -f ${TIMING_FIX} ] && [ ! -f oculomotor_deconv+orig.BRIK ]
             -num_glt 2 \
             -gltsym 'SYM: fix -cross' \
             -glt_label 1 fix-cross \
-            -gltsym 'SYM: sac' \
-            -glt_label 2 sac \
+            -gltsym 'SYM: sac -fix' \
+            -glt_label 2 sac-fix \
             -censor "$subj_DIR/motion/motion_censor_vector.txt[0]" \
             -nocout \
             -tout \
